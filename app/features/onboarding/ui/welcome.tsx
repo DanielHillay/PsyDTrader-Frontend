@@ -1,5 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
+
 
 export default function WelcomeScreen() {
     return (
@@ -7,8 +9,9 @@ export default function WelcomeScreen() {
          <View>
            <Image 
              style={{
-              width: 169,
-              height: 189
+              width: scale(169),
+              height: verticalScale(189),
+              marginLeft: 20,
              }}
              source={require('../../../../assets/images/btc.png')} />
             <Text style={{
@@ -32,7 +35,7 @@ export default function WelcomeScreen() {
               <Text style={styles.submitButtonText}>Continue</Text>
        </TouchableOpacity>
       </View>
-    )
+    );
 }
 
 const styles = StyleSheet.create({
@@ -43,17 +46,16 @@ const styles = StyleSheet.create({
        alignItems: 'center'
     },
     submitBtn: {
-        width: 380,
-        height: 56,
+        width: scale(300),
+        height: verticalScale(48),
         backgroundColor: '#B89F1B',
         borderRadius: 8,
-        marginTop: 140,
+        marginTop: 40,
         padding: 10,
     },
       submitButtonText: {
         color: '#101213',
         fontSize: 20,
-        fontWeight: 700,
         textAlign: 'center'
       }
 });

@@ -1,8 +1,9 @@
 import  React, { useState }  from 'react';
-import { View, Text, TextInput, TouchableOpacity,  StyleSheet } from 'react-native';
+import { SafeAreaView, ScrollView, View, Text, TextInput, TouchableOpacity,  StyleSheet } from 'react-native';
 import { Formik } from 'formik';
 import { useNavigation } from '@react-navigation/native';
 import Lock from 'react-native-vector-icons/AntDesign';
+import { scale, verticalScale } from 'react-native-size-matters';
 import * as Yup from 'yup';
 
 
@@ -63,9 +64,9 @@ export default function SignUpScreen() {
                    value={values.phoneNumber}
                />
                  <Text style={styles.labelText}>Password</Text>
-                <View>
+                <View  style={styles.passwordInputField}>
                  <TextInput 
-                   style={styles.passwordInputField}
+                    style={{ flex: 1, color: '#D9DDE3'}}
                    placeholder="Enter your password"
                    onChangeText={handleChange('password')}
                    onBlur={handleBlur('password')}
@@ -79,7 +80,6 @@ export default function SignUpScreen() {
                   <Lock 
                    name={showPassword ? 'unlock' : 'lock'}
                     color="#fff"
-                    style={styles.passwordInput}
                     size={20}
                    />
                 </TouchableOpacity>
@@ -126,12 +126,11 @@ const styles = StyleSheet.create({
    },
    labelText: {
       color: '#D9DDE3',
-      marginTop: 25,
-      marginBottom: 13,
+      marginTop: 20,
    },
    input: {
-      width: 380,
-      height: 56,
+    width: scale(300),
+    height: verticalScale(48),
       backgroundColor: '#202328',
       marginVertical: 10,
       color: '#EFF0F6',
@@ -141,29 +140,26 @@ const styles = StyleSheet.create({
       borderWidth: 1,
       borderColor: '#D9DDE3'
    },
-   passwordInput: {
-      bottom: 30,
-      right: 30,
-      position: 'absolute'
-   },
    passwordInputField: {
-      width: 380,
-      height: 56,
+     flexDirection: 'row',
+      width: scale(300),
+      height: verticalScale(48),
       backgroundColor: '#202328',
       marginVertical: 10,
       paddingHorizontal: 10,
       borderRadius: 8,
       color: '#D9DDE3', 
       borderWidth: 1,
-      borderColor: '#D9DDE3'
+      borderColor: '#D9DDE3',
+      alignItems: 'center'
    },
    submitBtn: {
-    width: 380,
-    height: 56,
+    width: scale(300),
+    height: verticalScale(48),
     backgroundColor: '#B89F1B',
     borderRadius: 8,
     padding: 15,
-    marginTop: 30
+    marginTop: 18
   },
   submitButtonText: {
     color: '#101213',
@@ -176,8 +172,8 @@ const styles = StyleSheet.create({
   signUpText: {
     color: '#D9DDE3',
     textAlign: 'center',
-    fontSize: 20,
-    marginTop: 30
+    fontSize: 16,
+    marginTop: 18
   },
   signUpLink: {
     color: '#B89F1B'

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, CheckBox, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, CheckBox, Modal,  StyleSheet} from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
 import { Formik } from 'formik';
 
 export default function TradingPlan() {
     const [isSelected, setSelection] = useState(false);
+    const [modalVisible, setModalVisible] = useState(false);
 
     const handleSubmit = (values) => {
         // Handle form submission here
@@ -74,7 +76,7 @@ export default function TradingPlan() {
                  </Text>
                 </View>
 
-                <TouchableOpacity>
+                <TouchableOpacity style={styles.skipButton}>
                  <Text style={styles.skipText}>Skip</Text>
                </TouchableOpacity>
              </View>
@@ -91,7 +93,6 @@ const styles = StyleSheet.create({
      },
      tradingText: {
         color:'#ffffff',
-        fontWeight: 800,
         fontSize: 30,
         },
      bottomContent: {
@@ -104,15 +105,14 @@ const styles = StyleSheet.create({
       },
       labelText: {
         color: '#D9DDE3',
-        marginTop: 25,
-        marginBottom: 13,
+        marginTop: 14,
      },
      input: {
-        height: 56,
+        height: verticalScale(48),
         backgroundColor: '#202328',
         marginVertical: 10,
         paddingHorizontal: 10,
-        width: 380,
+        width: scale(300),
         borderRadius: 8,
         color: '#D9DDE3', 
         borderWidth: 1,
@@ -121,15 +121,17 @@ const styles = StyleSheet.create({
      flexContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        marginTop: 16,
         marginBottom: 10
      },
      button: {
       flex: 1,
-       height: 45,
+       height: verticalScale(34),
        backgroundColor: '#202328',
        padding: 15,
        color: '#D9DDE3', 
        borderWidth: 1,
+       padding: 8,
        borderColor: '#D9DDE3',
        borderRadius: 40
      },
@@ -139,18 +141,16 @@ const styles = StyleSheet.create({
         fontSize: 11
      },
      submitBtn: {
-        width: 380,
-        height: 56,
+        width: scale(300),
+        height: verticalScale(48),
         backgroundColor: '#B89F1B',
         borderRadius: 8,
         padding: 15,
-        marginTop: 20,
-        marginBottom: 35
+        marginTop: 30
       },
       submitButtonText: {
         color: '#101213',
         fontSize: 20,
-        fontWeight: 700,
         textAlign: 'center'
       },
       checkboxContainer: {
@@ -165,11 +165,18 @@ const styles = StyleSheet.create({
         margin: 10,
         color: 'rgba(217,221,227,0.4)'
       },
+      skipButton: {
+        width: scale(280),
+        height: verticalScale(48),
+        backgroundColor: 'transparent', 
+        borderRadius: 8,
+        justifyContent: 'center',
+        alignItems: 'center', 
+      },
       skipText: {
         color: '#B89F1B',
         fontSize: 20,
-        fontWeight: 700,
         textAlign: 'center',
-        marginTop: 40
+        marginTop: 20
        }
 })

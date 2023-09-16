@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Image, Text, StyleSheet  } from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 export default function TradingStrategy() {
     return (
@@ -27,7 +28,8 @@ const styles = StyleSheet.create({
     },
     imageView: {
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
+      marginBottom: verticalScale(20),
     },
     accessView: {
       marginTop: 20,
@@ -35,13 +37,13 @@ const styles = StyleSheet.create({
     accessText: {
       color: "#ffffff",
       fontWeights: 800,
-      fontSize: 20,
+      fontSize: scale(17),
       textAlign: 'center',
     },
     profitText: {
      color: "#EFF0F6",
      fontWeights: 400,
-     fontSize: 18,
+     fontSize: scale(18),
      textAlign: 'center'
     }
   });

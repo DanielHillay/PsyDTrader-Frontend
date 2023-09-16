@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, Image, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput,  StyleSheet } from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
 
 
 export default function TradingRisk() {
@@ -17,30 +18,14 @@ export default function TradingRisk() {
             </Text>
             <TextInput 
                 placeholder="0.00"
-                style={{
-                  width: 170,
-                 height: 38,
-                backgroundColor: '#202328',
-                borderRadius: 8,
-               color: '#D9DDE3', 
-               paddding: 10,
-               border: 'none'
-              }}
+                style={styles.bigInput}
             />
           </View>
           <View style={styles.rateItem}>
              <Text style={styles.rateText}>Make loss % per trade</Text>
              <TextInput 
                 placeholder="0.00"
-                style={{
-                  width: 170,
-                 height: 38,
-                backgroundColor: '#202328',
-                borderRadius: 8,
-               color: '#D9DDE3', 
-               padding: 10,
-               border: 'none'
-              }}
+                style={styles.bigInput}
             />
           </View>
         </View>
@@ -49,30 +34,14 @@ export default function TradingRisk() {
             <Text style={styles.rateText}>Min RRR per trade</Text>
             <TextInput 
                 placeholder="565.989"
-                style={{
-                  width: 170,
-                  height: 38,
-                 backgroundColor: '#202328',
-                 borderRadius: 8,
-                 padding: 10,
-                color: '#D9DDE3', 
-                border: 'none'
-               }}
+                style={styles.bigInput}
             />
           </View>
           <View style={styles.rateItem}>
              <Text style={styles.rateText}>Min RRR per trade</Text>
              <TextInput 
                 placeholder="0.00"
-                style={{
-                  width: 170,
-                 height: 38,
-                backgroundColor: '#202328',
-                borderRadius: 8,
-                padding: 10,
-               color: '#D9DDE3', 
-               border: 'none'
-              }}
+                style={styles.bigInput}
             />
           </View>
         </View>
@@ -82,15 +51,7 @@ export default function TradingRisk() {
             <Text style={styles.rateText}>Total profit % per page</Text>
             <TextInput 
                 placeholder="0.00"
-                style={{
-                  width: 170,
-                  height: 38,
-                 backgroundColor: '#202328',
-                 borderRadius: 8,
-                 padding: 10,
-                color: '#D9DDE3', 
-                border: 'none'
-               }}
+                style={styles.bigInput}
             />
           </View>
           <View style={styles.rateItem}>
@@ -109,7 +70,7 @@ export default function TradingRisk() {
                  <Text style={styles.submitButtonText}>Next</Text>
           </TouchableOpacity>
         
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.skipButton}>
             <Text style={styles.skipText}>Skip</Text>
          </TouchableOpacity>
       </View>
@@ -131,7 +92,6 @@ const styles = StyleSheet.create({
     },
     tradingText: {
         color:'#ffffff',
-        fontWeight: 800,
         fontSize: 30,
    },
    rateView: {
@@ -151,14 +111,12 @@ const styles = StyleSheet.create({
    },
    rateText1: {
     color: 'rgba(217,221,227,0.4)',
-    fontSize: 16,
-    //marginRight: 30
+    fontSize: 16
    },
    rateName: {
     color: '#101213',
     fontSize: 16,
-    textAlign: 'center',
-    //marginRight: 30
+    textAlign: 'center'
    },
    rateText2: {
     color: '#D9DDE3',
@@ -166,25 +124,40 @@ const styles = StyleSheet.create({
     textAlign: 'center'
    },
    submitBtn: {
-    width: 380,
-    height: 56,
+    width: scale(300),
+    height: verticalScale(48),
     backgroundColor: '#B89F1B',
     borderRadius: 8,
-    marginTop: 140,
+    marginTop: 20,
     padding: 10,
 },
+bigInput: {
+  width: scale(130),
+  height: verticalScale(38),
+  backgroundColor: '#202328',
+  borderRadius: 8,
+  color: '#D9DDE3', 
+  padding: 10,
+  border: 'none'
+  },
   submitButtonText: {
     color: '#101213',
     fontSize: 20,
-    fontWeight: 700,
     textAlign: 'center'
   },
   skipText: {
     color: '#B89F1B',
     fontSize: 20,
-    fontWeight: 700,
     textAlign: 'center',
      marginTop: 20
+   },
+   skipButton: {
+    width: scale(280),
+    height: verticalScale(48),
+    backgroundColor: 'transparent', 
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center', 
    },
    rateOpacity: {
     width: 86,
@@ -193,4 +166,4 @@ const styles = StyleSheet.create({
     padding: 4,
     backgroundColor: '#B89F1B'
    }
-})
+});

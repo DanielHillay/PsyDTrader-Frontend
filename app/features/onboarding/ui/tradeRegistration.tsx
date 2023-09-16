@@ -5,6 +5,7 @@ import Lock from 'react-native-vector-icons/AntDesign';
 import TradingPlan from './tradingPlan';
 import TradingRisk from './tradingRisk';
 import ExitTrading from './exitTrading';
+import { scale, verticalScale } from 'react-native-size-matters';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
 
@@ -54,7 +55,7 @@ export default function TradingRegistration() {
             setSliderPage(event);
            }}
         >
-          <View style={{ width, height, justifyContent: 'flex-start'}}>
+          <View style={{ width, height }}>
           <View style={styles.bottomContent}>
           <Text style={styles.tradingText}>
               Trading Account {'\n'}
@@ -89,9 +90,9 @@ export default function TradingRegistration() {
                />
                 {touched.email && errors.email && <Text style={styles.errorText}>Invalid Email</Text>}
                 <Text style={styles.labelText}>Password</Text>
-                <View>
+                <View style={styles.passwordInputField}>
                  <TextInput 
-                   style={styles.input}
+                   style={{ flex: 1, color: '#D9DDE3' }}
                    placeholder="Enter your password"
                    onChangeText={handleChange('password')}
                    onBlur={handleBlur('password')}
@@ -104,7 +105,6 @@ export default function TradingRegistration() {
                   <Lock 
                    name={showPassword ? 'unlock' : 'lock'}
                     color="#fff"
-                    style={styles.passwordInput}
                     size={20}
                    />
                 </TouchableOpacity>
@@ -135,7 +135,7 @@ export default function TradingRegistration() {
                  <Text style={styles.submitButtonText}>Next</Text>
                </TouchableOpacity>
 
-               <TouchableOpacity>
+               <TouchableOpacity style={styles.skipButton}>
                  <Text style={styles.skipText}>Skip</Text>
                </TouchableOpacity>
             </View>
@@ -143,13 +143,13 @@ export default function TradingRegistration() {
         </Formik>
          </View>
       </View>
-      <View style={{ width, height, justifyContent: 'flex-start'}}>
+      <View style={{ width, height}}>
          <TradingPlan />
       </View>
-      <View style={{ width, height, justifyContent: 'flex-start'}}>
+      <View style={{ width, height}}>
         <TradingRisk />
       </View>
-       <View style={{ width, height, justifyContent: 'flex-start'}}>
+       <View style={{ width, height}}>
           <ExitTrading />
        </View>
      </ScrollView>
@@ -175,12 +175,10 @@ export default function TradingRegistration() {
 const styles = StyleSheet.create({
    tradeContainer: {
     backgroundColor: '#101213',
-    flex: 1,
    },
    tradingText: {
    color:'#D9DDE3',
-   fontWeight: 800,
-   fontSize: 30,
+   fontSize: 20,
    },
    bottomContent: {
     marginTop: 150,
@@ -188,32 +186,39 @@ const styles = StyleSheet.create({
   },
   bottomText: {
     color: '#ABABAB',
-    marginTop: 15
+    marginTop: 10
   },
   labelText: {
     color: '#D9DDE3',
-    marginTop: 15,
-    marginBottom: 13,
+    marginTop: 10,
  },
  input: {
-    height: 56,
+    height: verticalScale(48),
     backgroundColor: '#202328',
     marginVertical: 10,
     paddingHorizontal: 10,
-    width: 380,
+    width: scale(280),
     borderRadius: 8,
     color: '#D9DDE3', 
     borderWidth: 1,
     borderColor: '#D9DDE3'
  },
+ passwordInputField: {
+  flexDirection: 'row',
+   width: scale(280),
+   height: verticalScale(48),
+   backgroundColor: '#202328',
+   marginVertical: 10,
+   paddingHorizontal: 10,
+   borderRadius: 8,
+   color: '#D9DDE3', 
+   borderWidth: 1,
+   borderColor: '#D9DDE3',
+   alignItems: 'center'
+},
  errorText: {
     color: 'red'
   },
-  passwordInput: {
-    bottom: 30,
-    right: 30,
-    position: 'absolute'
- },
  checkboxContainer: {
     flexDirection: 'row',
     marginBottom: 8
@@ -227,24 +232,30 @@ const styles = StyleSheet.create({
     color: 'rgba(217,221,227,0.4)'
   },
  submitBtn: {
-    width: 380,
-    height: 56,
+    width: scale(280),
+    height: verticalScale(48),
     backgroundColor: '#B89F1B',
     borderRadius: 8,
     padding: 15,
-    marginTop: 10
+    marginTop: 5
   },
   submitButtonText: {
     color: '#101213',
     fontSize: 20,
-    fontWeight: 700,
     textAlign: 'center'
+  },
+  skipButton: {
+    width: scale(280),
+    height: verticalScale(48),
+    backgroundColor: 'transparent', 
+    borderRadius: 8,
+    justifyContent: 'center',
+    alignItems: 'center', 
   },
   skipText: {
    color: '#B89F1B',
    fontSize: 20,
-   textAlign: 'center',
-   marginTop: 20
+   marginTop: 10
   },
    paginationDots: {
     height: 10,

@@ -3,6 +3,7 @@ import AutoJournal from './journalScreen';
 import TradingStrategy from './strategyScreen';
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, ScrollView, View, Image, Text, TouchableOpacity,  Dimensions, StyleSheet } from 'react-native';
+import { scale, verticalScale } from 'react-native-size-matters';
 import Arrow from 'react-native-vector-icons/FontAwesome';
 
 
@@ -78,11 +79,11 @@ export default function AccessSplashScreen() {
           style={{
             bottom: 0,
             left: 40,
-            marginTop: 70,
+            top:  scale(50),
             backgroundColor: "#B89F1B",
             right: 0,
-            width: 50,
-            height: 25,
+            width: scale(50),
+            height: verticalScale(25),
             padding: 7,
             justifyContent: 'center',
           }}
@@ -105,7 +106,9 @@ const styles = StyleSheet.create({
   },
   imageView: {
     justifyContent: 'center', 
-    alignItems: 'center'
+    alignItems: 'center',
+    marginBottom: verticalScale(20),
+
   },
   accessView: {
     marginTop: 20,
@@ -113,21 +116,21 @@ const styles = StyleSheet.create({
   accessText: {
     color: "#ffffff",
     fontWeights: 800,
-    fontSize: 20,
+    fontSize: scale(17),
     textAlign: 'center',
   },
   profitText: {
    color: "#EFF0F6",
    fontWeights: 400,
-   fontSize: 18,
+   fontSize: scale(18),
    textAlign: 'center'
   },
   paginationDots: {
-    height: 10,
-    width: 10,
-    top: 40,
-    borderRadius: 10 / 2,
+    width: scale(10),
+    height: scale(10),
+    top: scale(50),
+    borderRadius: scale(10) / 2,
     backgroundColor: '#B89F1B',
-    marginLeft: 10,
+    marginLeft: scale(10),
   }
 });
