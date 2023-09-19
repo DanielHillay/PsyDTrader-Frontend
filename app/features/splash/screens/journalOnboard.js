@@ -36,13 +36,11 @@ const styles = StyleSheet.create({
     },
     accessText: {
       color: "#ffffff",
-      fontWeights: 800,
       fontSize: scale(17),
       textAlign: 'center',
     },
     profitText: {
      color: "#EFF0F6",
-     fontWeights: 400,
      fontSize: scale(18),
      textAlign: 'center'
     }

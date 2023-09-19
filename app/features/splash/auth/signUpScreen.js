@@ -122,7 +122,6 @@ const styles = StyleSheet.create({
      loginText: {
       color: '#D9DDE3',
       fontSize: 20,
-      fontWeight: 800,
    },
    labelText: {
       color: '#D9DDE3',

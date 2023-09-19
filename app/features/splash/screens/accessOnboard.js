@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import AutoJournal from './journalScreen';
-import TradingStrategy from './strategyScreen';
+import AutoJournal from './journalOnboard';
+import TradingStrategy from './strategyOnboard';
 import { useNavigation } from "@react-navigation/native";
 import { SafeAreaView, ScrollView, View, Image, Text, TouchableOpacity,  Dimensions, StyleSheet } from 'react-native';
 import { scale, verticalScale } from 'react-native-size-matters';
@@ -32,7 +32,7 @@ export default function AccessSplashScreen() {
           scrollEventThrottle={3}
           pagingEnabled={true}
           showsHorizontalScrollIndicator={false}
-          onScroll={(event: any) => {
+          onScroll={(event) => {
             setSliderPage(event);
           }}
         >
@@ -87,7 +87,7 @@ export default function AccessSplashScreen() {
             padding: 7,
             justifyContent: 'center',
           }}
-          onPress={() => navigation.navigate('signin')}
+          onPress={() => navigation.navigate("signin")}
           >
            <Arrow 
            name="long-arrow-right"
@@ -115,13 +115,11 @@ const styles = StyleSheet.create({
   },
   accessText: {
     color: "#ffffff",
-    fontWeights: 800,
     fontSize: scale(17),
     textAlign: 'center',
   },
   profitText: {
    color: "#EFF0F6",
-   fontWeights: 400,
    fontSize: scale(18),
    textAlign: 'center'
   },

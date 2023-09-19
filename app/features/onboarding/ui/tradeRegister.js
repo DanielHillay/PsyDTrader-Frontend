@@ -1,10 +1,19 @@
 import  React, { useState }  from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, View, CheckBox,  Text, TouchableOpacity, TextInput, Dimensions } from 'react-native';
-import Selector from '../../../components/selector/selector';
+import {
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  View,
+  CheckBox, // Import CheckBox like this
+  Text,
+  TouchableOpacity,
+  TextInput,
+  Dimensions,
+} from 'react-native';
 import Lock from 'react-native-vector-icons/AntDesign';
-import TradingPlan from './tradingPlan';
-import TradingRisk from './tradingRisk';
-import ExitTrading from './exitTrading';
+import TradingPlan from './tradePlan';
+import TradingRisk from './tradeRisk';
+import ExitScreen from './tradeExit';
 import { scale, verticalScale } from 'react-native-size-matters';
 import { Formik } from 'formik';
 import * as Yup from 'yup';
@@ -51,7 +60,7 @@ export default function TradingRegistration() {
            scrollEventThrottle={4}
            pagingEnabled={true}
            showsHorizontalScrollIndicator={false}
-           onScroll={(event: any) => {
+           onScroll={(event) => {
             setSliderPage(event);
            }}
         >
@@ -110,7 +119,7 @@ export default function TradingRegistration() {
                 </TouchableOpacity>
                 </View>
                 {touched.password && errors.password && (
-                   <Text style={styles.errorText}>{errors.password}</Text>
+                   <Text style={styles.errorText}>Invalid Password</Text>
                  )} 
                 <Text style={styles.labelText}>Meta trader</Text>
                 <View style={styles.checkboxContainer}>
@@ -150,7 +159,7 @@ export default function TradingRegistration() {
         <TradingRisk />
       </View>
        <View style={{ width, height}}>
-          <ExitTrading />
+          <ExitScreen  />
        </View>
      </ScrollView>
          <View

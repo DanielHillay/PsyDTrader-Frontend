@@ -3,8 +3,13 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-nativ
 import { useNavigation } from '@react-navigation/native';
 import { scale, verticalScale } from 'react-native-size-matters';
 
-export default function ExitTrading() {
+export default function ExitScreen() {
   const navigation = useNavigation();
+
+  
+  const navigateToWelcome = () => {
+    navigation.navigate('welcome'); // Use the navigation object obtained from useNavigation
+  };
     return (
       <View style={styles.planView}>
         <View style={styles.bottomContent}>
@@ -20,7 +25,7 @@ export default function ExitTrading() {
               width: 40,
               height: 20,
               borderRadius: 6,
-              padding: 5,
+              padding: 5, 
               marginTop: 25,
               backgroundColor: '#B89F1B'
              }}
@@ -46,7 +51,7 @@ export default function ExitTrading() {
          </View>
          <TouchableOpacity
             style={styles.submitBtn}
-            onPress={() => navigation.navigate('welcome')}
+            onPress={navigateToWelcome}
           >
                  <Text style={styles.submitButtonText}>Next</Text>
           </TouchableOpacity>
@@ -113,7 +118,6 @@ skipButton: {
 skipText: {
   color: '#B89F1B',
   fontSize: 20,
-  fontWeight: 700,
   textAlign: 'center',
    marginTop: 20
  },

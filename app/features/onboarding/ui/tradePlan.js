@@ -128,7 +128,6 @@ const styles = StyleSheet.create({
       flex: 1,
        height: verticalScale(34),
        backgroundColor: '#202328',
-       padding: 15,
        color: '#D9DDE3', 
        borderWidth: 1,
        padding: 8,

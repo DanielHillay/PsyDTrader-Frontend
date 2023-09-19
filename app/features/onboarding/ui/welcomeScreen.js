@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { scale, verticalScale } from 'react-native-size-matters';
+import { useNavigation } from '@react-navigation/native';
 
-
-export default function WelcomeScreen() {
+export default function Welcome() {
+  const navigation = useNavigation();
     return (
       <View style={styles.areaStyle}>
          <View>
@@ -14,24 +15,20 @@ export default function WelcomeScreen() {
               marginLeft: 20,
              }}
              source={require('../../../../assets/images/btc.png')} />
-            <Text style={{
-                color: '#fff',
-                fontSize: 20,
-                fontWeight: 300,
-                textAlign: 'center',
-                marginBottom: 15
-            }}>Welcome to PsyTrader</Text>
+            <Text style={styles.welcomeText}>Welcome to PsyTrader</Text>
             <Text style={{
                 color: '#fff',
                fontSize: 10,
                textAlign: 'center'
             }}>
                 Hi there, I'm having trouble logging in to my {'\n'}
-                account. Can you help me reset my password?
+                account. Can you help me rest my password?
             </Text>
          </View>
          <TouchableOpacity
-         style={styles.submitBtn}>
+         style={styles.submitBtn}
+         onPress={() => navigation.navigate("dashboard")}
+         >
               <Text style={styles.submitButtonText}>Continue</Text>
        </TouchableOpacity>
       </View>
@@ -52,6 +49,12 @@ const styles = StyleSheet.create({
         borderRadius: 8,
         marginTop: 40,
         padding: 10,
+    },
+    welcomeText: {
+      color: '#fff',
+      fontSize: 20,
+      textAlign: 'center',
+      marginBottom: 15
     },
       submitButtonText: {
         color: '#101213',

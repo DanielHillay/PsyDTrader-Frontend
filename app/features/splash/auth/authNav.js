@@ -1,9 +1,10 @@
 import { React } from 'react';
 import  SignInScreen from './signInScreen';
 import SignUpScreen from './signUpScreen';
-import AccessSplashScreen from '../screens/accessScreen';
-import TradingRegistration from '../../onboarding/ui/tradeRegistration';
-import WelcomeScreen from '../../onboarding/ui/welcome';
+import AccessSplashScreen from '../screens/accessOnboard';
+import TradingRegistration from '../../onboarding/ui/tradeRegister';
+import Welcome from '../../onboarding/ui/welcomeScreen';
+import DashboardScreen from '../../onboarding/screens/dashboardScreen';
 import {  createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const Stack = createNativeStackNavigator();
@@ -35,11 +36,16 @@ export default function AuthNav() {
             />
           <Stack.Screen 
            name="welcome"
-           component={WelcomeScreen}
+           component={Welcome}
            options={{
               headerShown: false
            }}
             />
+            <Stack.Screen 
+              name="dashboard"
+              component={DashboardScreen}
+             options={{ headerShown: false}}
+           />
     </Stack.Navigator>
   );
 }
