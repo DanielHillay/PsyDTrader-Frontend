@@ -33,7 +33,7 @@ export default function ExitScreen() {
               <Text style={{ color: '#D9DDE3'}}>+</Text>
            </TouchableOpacity> */}
          </Text>
-         <Text style={{ color: '#D9DDE3', lineHeight: 16}}>
+         <Text style={{ color: '#D9DDE3'}}>
            when price gets to <TextInput style={styles.priceInter}  />  % of target profit, {'\n'}
            reduce volume/totalsize by <TextInput style={styles.priceInter} />  % and set {'\n'}
            stopLoss to <TextInput  style={styles.priceInter} /> % of current loss {'\n'}
@@ -112,8 +112,7 @@ skipButton: {
    backgroundColor: '#202328', 
    borderRadius: 8, 
    padding: 10, 
-   color: '#D9DDE3', 
-    border: 'none' 
+   color: '#D9DDE3'
  },
 skipText: {
   color: '#B89F1B',

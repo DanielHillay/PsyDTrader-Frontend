@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, TextInput, CheckBox, Modal,  StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput,  Modal,  StyleSheet} from 'react-native';
 import { scale, verticalScale } from 'react-native-size-matters';
 import { Formik } from 'formik';
 
@@ -65,11 +65,11 @@ export default function TradingPlan() {
                  <Text style={styles.submitButtonText}>Save our trade plan</Text>
                </TouchableOpacity>
                 <View style={styles.checkboxContainer}>
-                  <CheckBox
+                  {/* <CheckBox
                    value={isSelected}
                    onValueChange={setSelection}
                     style={styles.checkbox}
-                  />
+                  /> */}
                  <Text style={styles.checkLabel}>
                     I agree to the {' '} <Text style={{ color: '#B89F1B'}}>Terms and conditions</Text> of my trading {'\n'}
                     plan

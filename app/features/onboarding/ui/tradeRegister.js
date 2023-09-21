@@ -4,7 +4,6 @@ import {
   ScrollView,
   StyleSheet,
   View,
-  CheckBox, // Import CheckBox like this
   Text,
   TouchableOpacity,
   TextInput,
@@ -123,19 +122,19 @@ export default function TradingRegistration() {
                  )} 
                 <Text style={styles.labelText}>Meta trader</Text>
                 <View style={styles.checkboxContainer}>
-                  <CheckBox
+                  {/* <CheckBox
                    value={isSelected}
                    onValueChange={setSelection}
                     style={styles.checkbox}
-                  />
+                  /> */}
                  <Text style={styles.checkLabel}>MT4</Text>
                 </View>
                 <View style={styles.checkboxContainer}>
-                  <CheckBox
+                  {/* <CheckBox
                    value={isSelected}
                    onValueChange={setSelection}
                     style={styles.checkbox}
-                  />
+                  /> */}
                  <Text style={styles.checkLabel}>MT5</Text>
                 </View>
                 <TouchableOpacity
